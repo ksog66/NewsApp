@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="article"
+            type="com.notchdev.newsapp.data.model.Article" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/root"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="?attr/selectableItemBackground"
+        android:paddingTop="5dp"
+        android:paddingBottom="10dp">
+
+        <ImageView
+            android:id="@+id/articleImage"
+            android:layout_width="0dp"
+            android:layout_height="200dp"
+            android:contentDescription="@string/article_iv"
+            android:scaleType="centerCrop"
+            tools:src="@tools:sample/avatars"
+            app:articleImage="@{article}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/titleTv"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:ellipsize="end"
+            android:inputType="textCapWords"
+            android:maxLines="3"
+            android:text="@string/title_tv"
+            android:textColor="@color/black"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            android:layout_marginTop="10dp"
+            app:articleTitleString="@{article}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/articleImage" />
+
+        <TextView
+            android:id="@+id/dateTv"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@string/date_tv"
+            android:textSize="8sp"
+            android:textColor="@color/black"
+            app:articleDateString="@{article}"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constrainedWidth="true"
+            app:layout_constraintTop_toBottomOf="@+id/titleTv" />
+
+        <TextView
+            android:id="@+id/sourceTv"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@string/source_tv"
+            android:textSize="8sp"
+            android:textColor="@color/black"
+            app:articleSourceString="@{article}"
+            app:layout_constrainedWidth="true"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/dateTv" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
