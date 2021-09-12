@@ -26,6 +26,12 @@ class NewsViewModel @Inject constructor(
     private val _articles = MutableLiveData<List<Article>?>()
     val articles: LiveData<List<Article>?> = _articles
 
+    private val _url = MutableLiveData<String>()
+    val url:LiveData<String> = _url
+
+    fun setUrl(webUrl:String) {
+        _url.value = webUrl
+    }
     private fun getTopHeadlines(country:String) {
         newsRepository.getAllNews(country).subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())

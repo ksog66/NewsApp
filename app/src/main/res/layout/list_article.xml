@@ -7,6 +7,9 @@
         <variable
             name="article"
             type="com.notchdev.newsapp.data.model.Article" />
+        <variable
+            name="clickListener"
+            type="com.notchdev.newsapp.adapter.ArticleClickListener" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -14,6 +17,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="?attr/selectableItemBackground"
+        android:onClick="@{() -> clickListener.onClick(article)}"
         android:paddingTop="5dp"
         android:paddingBottom="10dp">
 
